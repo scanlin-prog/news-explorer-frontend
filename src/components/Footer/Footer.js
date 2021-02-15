@@ -14,9 +14,9 @@ function Footer() {
                     <a href="https://praktikum.yandex.ru" className="footer__link">Яндекс.Практикум</a>
                 </div>
                 <div className="footer__links-icon">
-                    <a className="footer__link"><img src={choto} /></a>
-                    <a href="https://ru-ru.facebook.com/" className="footer__link footer__link-square"><img src={facebook} /></a>
-                    <a href="https://ru-ru.facebook.com/" className="footer__link footer__link-circle"><img src={facebookCircle} /></a>
+                    <a className="footer__link"><img src={choto} alt="choto" /></a>
+                    <a href="https://ru-ru.facebook.com/" className="footer__link footer__link-square"><img src={facebook} alt="facebook"/></a>
+                    <a href="https://ru-ru.facebook.com/" className="footer__link footer__link-circle"><img src={facebookCircle} alt="facebook" /></a>
                 </div>
             </nav>
         </footer>
