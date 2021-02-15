@@ -1,0 +1,22 @@
+
+.articles {
+    display: grid;
+    grid-template: repeat(1, 1fr)/repeat(3, 1fr);
+    grid-gap: 16px;
+    margin: 0 auto 64px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+    .articles {
+        grid-gap: auto;
+        margin-bottom: 32px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .articles {
+        grid-template: 1fr / 1fr;
+        grid-gap: 9px;
+        margin-bottom: 28px;
+    }
+}

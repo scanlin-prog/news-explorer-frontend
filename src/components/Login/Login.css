@@ -1,0 +1,52 @@
+
+.login__field {
+    display: flex;
+    flex-direction: column;
+    margin: 0 36px 30px;
+    font-family: 'Inter';
+    font-weight: normal;
+    font-size: 0.75rem;
+    line-height: 1.25;
+    color: #2F71E5;
+}
+
+.login__field:last-of-type {
+    margin-bottom: 48px;
+}
+
+.login__input {
+    width: 100%;
+    min-height: 30px;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.0625;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.login__input_type_error {
+    border-color: #FF0000;
+}
+
+.login__input-error {
+    font-family: 'Inter';
+    font-weight: normal;
+    font-size: 0.75rem;
+    line-height: 1.25;
+    color: #FF0000;
+    display: none;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+    .login__field {
+        margin: 0 16px 30px;
+    }
+
+    .login__field:last-of-type {
+        margin-bottom: 23px;
+    }
+}

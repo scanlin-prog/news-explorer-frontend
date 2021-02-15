@@ -1,0 +1,81 @@
+
+.infotooltip {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(14, 13, 13, 0.5);
+    top: 0;
+    left: 0;
+    align-items: flex-start;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s linear, visibility .3s linear;
+}
+
+.infotooltip_opened {
+    visibility: visible;
+    opacity: 1; 
+}
+
+.infotooltip__container {
+    width: 430px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    color: black;
+    margin-top: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.infotooltip__title {
+    font-family: 'Roboto';
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    width: 76.75%;
+    margin: 34px auto 14px 36px;
+}
+
+.infotooltip__button-close {
+    background-image: url(../../images/popup_button_close.svg);
+    background-color: rgba(0, 0, 0, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    color: white;
+    border: 0;
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+
+.infotooltip__link {
+    text-decoration: none;
+    color: #2F71E5;
+    font-family: 'Inter';
+    font-weight: normal;
+    font-size: 1.125rem;
+    line-height: 1.21;
+    margin: 0 auto 51px 36px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .infotooltip__container {
+        width: 100%;
+        height: 100%;
+        margin-top: 50px;
+    }
+
+    .infotooltip__button-close {
+        width: 24px;
+        height: 24px;
+        top: -38px;
+        right: 15px;
+    }
+}

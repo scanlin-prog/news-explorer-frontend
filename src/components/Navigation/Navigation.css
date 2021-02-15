@@ -1,0 +1,138 @@
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 104px 0 0;
+}
+
+.navigation__not-logged {
+    display: none;
+}
+
+.navigation__logged {
+    display: flex;
+}
+
+.navigation__link {
+    text-decoration: none;
+    color: #B6BCBF;
+    margin: 30px 34px 0 0;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.33;
+}
+
+.navigation__link_hidden {
+    display: none;
+}
+
+.navigation__link:last-child {
+    margin: 17px 0 17px;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    border: 1px solid white;
+    min-height: 46px;
+}
+
+.navigation__link_current {
+    border-bottom: 2px solid white;
+    color: white;
+}
+
+.navigation__user {
+    margin: 10px 12px 12px ;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.33;
+    color: white;
+}
+
+.navigation__icon {
+    margin: 10px 10px 12px -8px;
+}
+
+.navigation__icon_hidden {
+    display: none;
+}
+
+.navigation__link_theme_dark {
+    color: black;
+}
+
+.navigation__user_theme_dark {
+    color: black;
+}
+
+.navigation__link_current_theme_dark {
+    border-bottom: 2px solid black;
+}
+
+.navigation__link_theme_dark:last-child {
+    border-color: black;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+
+    .navigation__link {
+        margin: 22px 16px 0 0;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .navigation {
+        margin: 0 40px 0 0;
+    }
+
+    .navigation__link:last-child {
+        margin: 12px 0 12px;
+        min-height: 40px;
+    }
+
+    .navigation__user {
+        margin: 8px 4px 8px 15px;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .navigation__icon {
+        margin: 10px 9px 11px 0;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+    .navigation {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navigation_visibility {
+        display: flex;
+    }
+
+    .navigation__link {
+        color: white;
+        border: none;
+        margin: 10px 0 6px 16px;
+        line-height: 3.11;
+    }
+
+    .navigation__link:last-child {
+        width: 90%;
+        margin: 16px auto 24px;
+    }
+    
+    .navigation__link_theme_dark:last-child {
+        border-color: white;
+    }
+
+    .navigation__user_theme_dark {
+        color: white;
+    }
+}

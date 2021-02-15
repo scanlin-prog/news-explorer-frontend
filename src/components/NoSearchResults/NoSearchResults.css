@@ -1,0 +1,33 @@
+
+.no-search-results {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F6F7;
+}
+
+.no-search-results__image {
+    margin: 80px auto 24px;
+}
+
+.no-search-results__title {
+    max-width: 356px;
+    text-align: center;
+    font-family: 'Roboto Slab';
+    font-weight: normal;
+    font-size: 1.625rem;
+    line-height: 1.15;
+    margin: 0 auto 16px;
+}
+
+.no-search-results__subtitle {
+    max-width: 356px;
+    text-align: center;
+    font-family: 'Roboto'; 
+    font-weight: normal; 
+    font-size: 1.125rem;
+    line-height: 1.33;
+    margin: 0 auto 80px;
+}
