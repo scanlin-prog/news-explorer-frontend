@@ -4,7 +4,7 @@ function Preloader() {
     return (
         <section className="preloader">
             <i className="preloader-circle"></i>
-            <p className="preloader-text">Идет поиск новостей...</p>
+            <h3 className="preloader-text">Идет поиск новостей...</h3>
         </section>
     )
 }

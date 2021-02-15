@@ -20,7 +20,7 @@
 
 .article__date {
     margin: 0 0 12px 24px;
-    font-family: 'Source Sans Pro';
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 1.125rem;
     line-height: 1.33;
@@ -29,7 +29,7 @@
 
 .article__title {
     margin: 0 0 16px 24px;
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 1.625rem;
     line-height: 1.15;
@@ -42,7 +42,7 @@
 
 .article__text {
     margin: 0 0 18px 24px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 1rem;
     line-height: 1.375;
@@ -55,7 +55,7 @@
 
 .article__source {
     margin: auto 0 24px 24px;
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', 'Helvetica Neue', Arial, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 1rem;
@@ -114,7 +114,7 @@
 }
 
 .article__alert {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 500;
     font-size: 0.625rem;
     line-height: 1.2;
@@ -134,7 +134,7 @@
 }
 
 .article__tag-title {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 500;
     font-size: 0.875rem;
     line-height: 1.71;

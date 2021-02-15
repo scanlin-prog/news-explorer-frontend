@@ -14,7 +14,7 @@ function Main(props) {
     return (
         <main className="content">
             <div className="main">
-            <Header logged={props.logged} handleLogin={props.handleLogin} handleLogout={props.handleLogout}></Header>
+            <Header nav={props.nav} openNavigation={props.openNavigation} closeNavigation={props.closeNavigation} logged={props.logged} handleLogin={props.handleLogin} handleLogout={props.handleLogout}></Header>
             <section className="search-news">
                 <div className="search-container">
                     <h1 className="search-news__title">Что творится в мире?</h1>
