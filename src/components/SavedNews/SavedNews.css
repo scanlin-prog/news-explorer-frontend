@@ -7,7 +7,7 @@
 
 .saved-news__subtitle {
     margin: 40px auto 28px 104px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 1.125rem;
     line-height: 1.33;
@@ -17,7 +17,7 @@
 .saved-news__title {
     margin: 0 auto 30px 104px;
     max-width: 530px;
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 2.5rem;
     line-height: 1.15;
@@ -25,7 +25,7 @@
 
 .saved-news__keywords {
     margin: 0 auto 56px 104px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 1.125rem;
     line-height: 1.33;

@@ -13,7 +13,7 @@
 
 .header__title {
     margin: 28px 0 0 104px;
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 500;
     font-size: 1.25rem;
     line-height: 1.2;
@@ -81,6 +81,7 @@
         width: 28px;
         height: 28px;
         margin: 16px;
+        cursor: pointer;
     }
 
     .header__menu-button-close {

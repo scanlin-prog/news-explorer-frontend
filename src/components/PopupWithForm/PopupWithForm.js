@@ -9,7 +9,7 @@ function PopupWithForm(props) {
     }
 
     return(
-        <div onMouseDown={handleOverlay} className={`popup ${props.isOpen ? "popup_opened" : ""}`} id={`popup-${props.name}`}>
+        <div onMouseDown={handleOverlay} className={`popup ${props.isOpen ? "popup_opened" : ""}`}>
             <form className="popup__container" name="popup-window" noValidate>
                 <h3 className="popup__title">{props.title}</h3>
                 {props.children}

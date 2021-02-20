@@ -31,7 +31,7 @@
 }
 
 .infotooltip__title {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 900;
     font-size: 1.5rem;
     line-height: 1.2;
@@ -58,7 +58,7 @@
 .infotooltip__link {
     text-decoration: none;
     color: #2F71E5;
-    font-family: 'Inter';
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 1.125rem;
     line-height: 1.21;

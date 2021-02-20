@@ -14,7 +14,7 @@
 }
 
 .about__title {
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 2.5rem;
     line-height: 1.15;
@@ -22,7 +22,7 @@
 }
 
 .about_describe {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 1.125rem;
     line-height: 1.33;

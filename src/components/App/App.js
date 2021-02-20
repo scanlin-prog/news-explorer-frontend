@@ -16,11 +16,21 @@ function App() {
   const [isLoginPopup, setLoginPopup] = React.useState(false);
   const [isRegisterPopup, setRegisterPopup] = React.useState(false);
   const [isInfoToolTipPopup, setInfoToolTipPopup] = React.useState(false);
+  const [nav, setNav] = React.useState(false);
 
   const history = useHistory();
 
+  function openNavigation() {
+    setNav(true)
+  }
+
+  function closeNavigation() {
+    setNav(false)
+  }
+
   function handleLoginClick() {
     closeAllPopups()
+    setNav(false)
     setLoginPopup(true);
   }
 
@@ -53,11 +63,11 @@ function App() {
     <div onKeyDown={handleEscClose} className="page">
       <Switch>
         <Route exact path="/">
-          <Main logged={logged} handleLogout={handleLogout} handleLogin={handleLoginClick}></Main>
+          <Main nav={nav} openNavigation={openNavigation} closeNavigation={closeNavigation} logged={logged} handleLogout={handleLogout} handleLogin={handleLoginClick}></Main>
           <About></About>
         </Route>
         <Route path="/saved-news">
-          <SavedNewsHeader logged={logged}></SavedNewsHeader>
+          <SavedNewsHeader nav={nav} openNavigation={openNavigation} closeNavigation={closeNavigation} logged={logged}></SavedNewsHeader>
           <SavedNews></SavedNews>
         </Route>
       </Switch>

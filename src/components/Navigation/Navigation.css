@@ -17,7 +17,7 @@
     text-decoration: none;
     color: #B6BCBF;
     margin: 30px 34px 0 0;
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     font-size: 1.125rem;
     line-height: 1.33;
@@ -43,7 +43,7 @@
 
 .navigation__user {
     margin: 10px 12px 12px ;
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     font-size: 1.125rem;
     line-height: 1.33;
@@ -52,6 +52,15 @@
 
 .navigation__icon {
     margin: 10px 10px 12px -8px;
+    width: 24px;
+    height: 24px;
+    background-image: url(../../images/logout.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.navigation__icon_theme_dark {
+    background-image: url(../../images/logout_dark.svg);
 }
 
 .navigation__icon_hidden {
@@ -116,6 +125,10 @@
         display: flex;
     }
 
+    .navigation__logged {
+        flex-direction: column;
+    }
+
     .navigation__link {
         color: white;
         border: none;
@@ -134,5 +147,9 @@
 
     .navigation__user_theme_dark {
         color: white;
+    }
+
+    .navigation__icon_theme_dark {
+        background-image: url(../../images/logout.svg);
     }
 }

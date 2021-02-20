@@ -2,7 +2,7 @@ import './InfoToolTip.css';
 
 function InfoToolTip(props) {
     return (
-        <div className={`infotooltip ${props.isOpen ? "infotooltip_opened" : ""}`} id={`infotooltip-${props.name}`}>
+        <div className={`infotooltip ${props.isOpen ? "infotooltip_opened" : ""}`}>
             <form className="infotooltip__container" name="infotooltip" onSubmit={props.onSubmit} noValidate>
                 <h3 className="infotooltip__title">Пользователь успешно зарегистрирован!</h3>
                 <a href="#" className="infotooltip__link">Войти</a>

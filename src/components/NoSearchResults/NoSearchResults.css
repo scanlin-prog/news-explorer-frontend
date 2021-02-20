@@ -15,7 +15,7 @@
 .no-search-results__title {
     max-width: 356px;
     text-align: center;
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', 'Helvetica Neue', Arial, sans-serif;
     font-weight: normal;
     font-size: 1.625rem;
     line-height: 1.15;
@@ -25,7 +25,7 @@
 .no-search-results__subtitle {
     max-width: 356px;
     text-align: center;
-    font-family: 'Roboto'; 
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
     font-weight: normal; 
     font-size: 1.125rem;
     line-height: 1.33;
