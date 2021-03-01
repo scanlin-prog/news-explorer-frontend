@@ -1,8 +1,8 @@
 import './Preloader.css'
 
-function Preloader() {
+function Preloader(props) {
     return (
-        <section className="preloader">
+        <section className={`preloader ${props.isPreloader ? "preloader_active" : ""}`}>
             <i className="preloader-circle"></i>
             <h3 className="preloader-text">Идет поиск новостей...</h3>
         </section>
