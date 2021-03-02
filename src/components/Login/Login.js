@@ -1,57 +1,65 @@
 import './Login.css';
 import React from 'react';
-import { useForm } from 'react-hook-form';
 import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
 import * as api from '../../utils/MainApi.js';
+import * as validation from '../FormValidator/FormValidator.js';
 
 function Login(props) {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [activeButton, setActiveButton] = React.useState(false)
     const emailInput = React.useRef()
     const emailSpan = React.useRef()
     const passwordInput = React.useRef()
     const passwordSpan = React.useRef()
     const loginButton = React.useRef()
 
+    React.useEffect(() => {
+        validation.toggleButtonState(loginButton, hasInvalidInput(), 'login')
+        hideLoginErrors()
+    }, [props.errorsForm])
+
     function resetForm() {
         setEmail('');
         setPassword('');
     }
 
-    function validationForm(valueInput, errorInput, buttonElement) {
-        if(!valueInput.current.validity.valid) {
-            valueInput.current.classList.add("login__input_type_error");
-            errorInput.current.classList.add("login__input-error_active");
-            errorInput.current.textContent = valueInput.current.validationMessage;
-            toggleButtonState(buttonElement, false)
-        } else {
-            valueInput.current.classList.remove("login__input_type_error");
-            errorInput.current.classList.remove("login__input-error_active");
-            errorInput.current.textContent = '';
-            toggleButtonState(buttonElement, true)
+    function hideLoginErrors() {
+        if (!props.errorsForm) {
+            validation.hideInputError(emailInput, emailSpan, 'login')
+            validation.hideInputError(passwordInput, passwordSpan, 'login')
         }
     }
 
-    function toggleButtonState(buttonElement, boolean) {
-        if(!boolean) {
-            buttonElement.current.classList.add("login__button-create_inactive");
-            buttonElement.current.setAttribute('disabled', true);
-        } else {
-            buttonElement.current.classList.remove("login__button-create_inactive");
-            buttonElement.current.removeAttribute('disabled');
+    function hasInvalidInput() {
+        if (!emailInput.current.validity.valid || !passwordInput.current.validity.valid) {
+            return false
         }
+        return true
+    }
+
+    function handleMouseEnter(evt) {
+        if (evt.target.classList.contains('login__button-create_inactive')) {
+            setActiveButton(false)
+        } else {
+            setActiveButton(true)
+        }
+    }
+
+    function handleMouseLeave() {
+        setActiveButton(false)
     }
 
     function handleChangeEmail(evt) {
         const { value } = evt.target;
         setEmail(value)
-        validationForm(emailInput, emailSpan, loginButton)
+        validation.checkInputValidity(emailInput, emailSpan, loginButton, hasInvalidInput(), 'login')
     }
 
     function handleChangePassword(evt) {
         const { value } = evt.target;
         setPassword(value)
-        validationForm(passwordInput, passwordSpan, loginButton)
+        validation.checkInputValidity(passwordInput, passwordSpan, loginButton, hasInvalidInput(), 'login')
     }
 
     function handleSubmit(evt) {
@@ -60,6 +68,7 @@ function Login(props) {
             console.log('Неверный email или пароль')
             return;
         }
+        validation.toggleButtonState(loginButton, false, 'login')
         api.authorize(email, password)
             .then((data) => {
                 if (data.token) {
@@ -85,7 +94,7 @@ function Login(props) {
                     name="password" required minLength="4" maxLength="12" />
                 <span ref={passwordSpan} className="login__input-error"></span>
             </label>
-            <button ref={loginButton} className={`login__button-create`}>Войти</button>
+            <button ref={loginButton} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`login__button-create ${activeButton ? "login__button-create_active" : ""}`}>Войти</button>
         </PopupWithForm>
     )
 }

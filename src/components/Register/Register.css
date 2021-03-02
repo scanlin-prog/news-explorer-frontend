@@ -69,7 +69,7 @@
     cursor: pointer;
 }
 
-.register__button-create:hover {
+.register__button-create_active {
     background-color: #347EFF;
 }
 

@@ -64,7 +64,7 @@
     cursor: pointer;
 }
 
-.login__button-create:hover {
+.login__button-create_active {
     background-color: #347EFF;
 }
 

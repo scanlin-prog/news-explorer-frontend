@@ -7,13 +7,16 @@ import Preloader from '../Preloader/Preloader.js';
 import NoSearchResults from '../NoSearchResults/NoSearchResults.js';
 import Error from '../Error/Error.js';
 import Header from '../Header/Header.js';
+import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 
 function Main(props) {
+
+    const currentUser = React.useContext(CurrentUserContext);
 
     return (
         <main className="content">
             <div className="main">
-            <Header nav={props.nav} user={props.user} openNavigation={props.openNavigation} closeNavigation={props.closeNavigation} logged={props.logged} handleLogin={props.handleLogin} handleLogout={props.handleLogout} />
+            <Header nav={props.nav} openNavigation={props.openNavigation} closeNavigation={props.closeNavigation} logged={props.logged} handleLogin={props.handleLogin} handleLogout={props.handleLogout} />
             <section className="search-news">
                 <div className="search-container">
                     <h1 className="search-news__title">Что творится в мире?</h1>

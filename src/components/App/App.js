@@ -29,6 +29,7 @@ function App() {
   const [savedArticles, setSavedArticles] = React.useState([]);
   const [visibleArticles, setVisibleArticles] = React.useState(3);
   const [isButtonShowMore, setButtonShowMore] = React.useState(true);
+  const [errorsForm, setErrorsForm] = React.useState(false)
 
   React.useEffect(() => {
     tokenCheck()
@@ -155,11 +156,13 @@ function App() {
     closeAllPopups()
     setNav(false)
     setLoginPopup(true)
+    setErrorsForm(true)
   }
 
   function handleRegisterClick() {
     closeAllPopups()
     setRegisterPopup(true)
+    setErrorsForm(true)
   }
 
   function handleInfoToolTipClick(boolean) {
@@ -171,6 +174,7 @@ function App() {
     setLoginPopup(false)
     setRegisterPopup(false)
     setInfoToolTipPopup(false)
+    setErrorsForm(false)
   }
 
   function handleEscClose(evt) {
@@ -248,11 +252,13 @@ function App() {
         </Switch>
         <Footer></Footer>
         <Login isOpen={isLoginPopup}
+          errorsForm={errorsForm}
           handleLogin={handleLogin}
           handleRegisterClick={handleRegisterClick}
           onClose={closeAllPopups}>
         </Login>
         <Register isOpen={isRegisterPopup}
+          errorsForm={errorsForm}
           handleLoginClick={handleLoginClick}
           handleInfoToolTipClick={handleInfoToolTipClick}
           onClose={closeAllPopups}>

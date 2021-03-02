@@ -2,10 +2,12 @@ import './SavedNews.css';
 import React from 'react';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader.js';
 import NewsCardList from '../NewsCardList/NewsCardList.js';
-import delete_icon from '../../images/delete_icon.svg';
 import NewsCard from '../NewsCard/NewsCard.js';
+import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 
 function SavedNews(props) {
+
+    const currentUser = React.useContext(CurrentUserContext);
 
     const tags = props.articles.map((article) => {
         return article.keyword
@@ -29,14 +31,13 @@ function SavedNews(props) {
     return (
         <>
             <SavedNewsHeader nav={props.nav}
-                user={props.user}
                 logged={props.logged}
                 openNavigation={props.openNavigation}
                 closeNavigation={props.closeNavigation}>
             </SavedNewsHeader>
             <section className="saved-news">
                 <h3 className="saved-news__subtitle">Сохранённые статьи</h3>
-                <h2 className="saved-news__title">{`${props.user.name}, у вас ${props.articles.length} сохраненных статей`}</h2>
+                <h2 className="saved-news__title">{`${currentUser.name}, у вас ${props.articles.length} сохраненных статей`}</h2>
                 <p className="saved-news__keywords">По ключевым словам: <span className="saved-news__keywords-accent">{getKeywordForPhrase(sortedTags)}</span></p>
             </section>
             <section className="saved-articles">

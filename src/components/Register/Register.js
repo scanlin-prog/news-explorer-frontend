@@ -2,11 +2,13 @@ import './Register.css';
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
 import * as api from '../../utils/MainApi.js';
+import * as validation from '../FormValidator/FormValidator.js';
 
 function Register(props) {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [name, setName] = React.useState('')
+    const [activeButton, setActiveButton] = React.useState(false)
     const emailInput = React.useRef()
     const emailSpan = React.useRef()
     const passwordInput = React.useRef()
@@ -15,54 +17,69 @@ function Register(props) {
     const nameSpan = React.useRef()
     const registerButton = React.useRef()
 
-    function validationForm(valueInput, errorInput, buttonElement) {
-        if(!valueInput.current.validity.valid) {
-            valueInput.current.classList.add("register__input_type_error");
-            errorInput.current.classList.add("register__input-error_active");
-            errorInput.current.textContent = valueInput.current.validationMessage;
-            toggleButtonState(buttonElement, false)
-        } else {
-            valueInput.current.classList.remove("register__input_type_error");
-            errorInput.current.classList.remove("register__input-error_active");
-            errorInput.current.textContent = '';
-            toggleButtonState(buttonElement, true)
+    React.useEffect(() => {
+        validation.toggleButtonState(registerButton, hasInvalidInput(), 'register')
+        hideRegisterErrors()
+    }, [props.errorsForm])
+
+    function resetForm() {
+        setEmail('');
+        setPassword('');
+    }
+
+    function hideRegisterErrors() {
+        if (!props.errorsForm) {
+            validation.hideInputError(emailInput, emailSpan, 'register')
+            validation.hideInputError(passwordInput, passwordSpan, 'register')
+            validation.hideInputError(nameInput, nameSpan, 'register')
         }
     }
 
-    function toggleButtonState(buttonElement, boolean) {
-        if(!boolean) {
-            buttonElement.current.classList.add("register__button-create_inactive");
-            buttonElement.current.setAttribute('disabled', true);
-        } else {
-            buttonElement.current.classList.remove("register__button-create_inactive");
-            buttonElement.current.removeAttribute('disabled');
+    function hasInvalidInput() {
+        if (!emailInput.current.validity.valid || !passwordInput.current.validity.valid || !nameInput.current.validity.valid) {
+            return false
         }
+        return true
+    }
+
+    function handleMouseEnter(evt) {
+        if (evt.target.classList.contains('register__button-create_inactive')) {
+            setActiveButton(false)
+        } else {
+            setActiveButton(true)
+        }
+    }
+
+    function handleMouseLeave() {
+        setActiveButton(false)
     }
 
     function handleChangeEmail(evt) {
         const { value } = evt.target;
         setEmail(value)
-        validationForm(emailInput, emailSpan, registerButton)
+        validation.checkInputValidity(emailInput, emailSpan, registerButton, hasInvalidInput(), 'register')
     }
 
     function handleChangePassword(evt) {
         const { value } = evt.target;
         setPassword(value)
-        validationForm(passwordInput, passwordSpan, registerButton)
+        validation.checkInputValidity(passwordInput, passwordSpan, registerButton, hasInvalidInput(), 'register')
     }
 
     function handleChangeName(evt) {
         const { value } = evt.target;
         setName(value)
-        validationForm(nameInput, nameSpan, registerButton)
+        validation.checkInputValidity(nameInput, nameSpan, registerButton, hasInvalidInput(), 'register')
     }
 
     function handleSubmit(evt) {
         evt.preventDefault();
+        validation.toggleButtonState(registerButton, false, 'register')
         api.register(name, email, password)
         .then((res) => {
             if(res) {
                 props.handleInfoToolTipClick(true)
+                resetForm()
             } else {
                 props.handleInfoToolTipClick(false)
             }
@@ -88,7 +105,7 @@ function Register(props) {
                 <span ref={nameSpan} className="register__input-error"></span>
             </label>
             <span className="register__input-error register__input-error_last">Такой пользователь уже есть</span>
-            <button ref={registerButton} className={`register__button-create`}>Регистрация</button>
+            <button ref={registerButton} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`register__button-create ${activeButton ? "register__button-create_active" : ""}`}>Регистрация</button>
         </PopupWithForm>
     )
 }
