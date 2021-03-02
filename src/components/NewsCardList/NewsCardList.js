@@ -1,11 +1,12 @@
 import './NewsCardList.css';
 import '../NewsCard/NewsCard.js';
+import NewsCard from '../NewsCard/NewsCard.js';
 
 function NewsCardList(props) {
     return (
-        <div className="articles">
+        <section className="articles">
             {props.children}
-        </div >
+        </section>
     )
 }
 

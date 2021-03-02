@@ -2,14 +2,21 @@
 .article {
     background-color: white;
     color: black;
-    display: flex;
-    flex-direction: column;
     position: relative;
     border-radius: 16px;
     width: 400px;
     height: 576px;
     margin: 0 auto;
     cursor: pointer;
+}
+
+.article__link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    width: 100%;
 }
 
 .article__image {
@@ -101,6 +108,10 @@
     background-image: url(../../images/bookmark_marked.svg);
 }
 
+.article__icon-save_active:hover {
+    background-image: url(../../images/bookmark_marked.svg);
+}
+
 .article__icon-alert {
     height: 40px;
     position: absolute;
@@ -108,9 +119,13 @@
     right: 69px;
     background-color: white;
     border-radius: 10px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+}
+
+.article__icon-alert_visible {
+    display: flex;
 }
 
 .article__alert {

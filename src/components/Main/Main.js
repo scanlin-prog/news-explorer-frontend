@@ -1,42 +1,45 @@
 import './Main.css';
+import React from 'react';
 import SearchForm from '../SearchForm/SearchForm.js';
 import NewsCardList from '../NewsCardList/NewsCardList.js';
+import NewsCard from '../NewsCard/NewsCard.js';
 import Preloader from '../Preloader/Preloader.js';
 import NoSearchResults from '../NoSearchResults/NoSearchResults.js';
-import park from '../../images/park.png';
-import forest from '../../images/forest.png';
-import taiga from '../../images/taiga.png';
-import bookmark_normal from '../../images/bookmark_normal.svg';
-import NewsCard from '../NewsCard/NewsCard.js';
+import Error from '../Error/Error.js';
 import Header from '../Header/Header.js';
+import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 
 function Main(props) {
+
+    const currentUser = React.useContext(CurrentUserContext);
+
     return (
         <main className="content">
             <div className="main">
-            <Header nav={props.nav} openNavigation={props.openNavigation} closeNavigation={props.closeNavigation} logged={props.logged} handleLogin={props.handleLogin} handleLogout={props.handleLogout}></Header>
+            <Header nav={props.nav} openNavigation={props.openNavigation} closeNavigation={props.closeNavigation} logged={props.logged} handleLogin={props.handleLogin} handleLogout={props.handleLogout} />
             <section className="search-news">
                 <div className="search-container">
                     <h1 className="search-news__title">Что творится в мире?</h1>
                     <p className="search-news__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-                    <SearchForm></SearchForm>
+                    <SearchForm searchNews={props.searchNews} onChangeSearchInput={props.onChangeSearchInput} />
                 </div>
             </section>
             </div>
-            <Preloader></Preloader>
-            <NoSearchResults></NoSearchResults>
-            <section className="news">
+            <Preloader isPreloader={props.isPreloader} />
+            <NoSearchResults isNoSearchResults={props.isNoSearchResults} />
+            <Error isError={props.isError} />
+            <section className={`news ${props.isNewsBlock ? "news_active" : ""}`}>
                 <h2 className="news__title">Результаты поиска</h2>
                 <NewsCardList>
-                    <NewsCard hidden={true} image={park} date={'2 августа, 2019'} title={'Национальное достояние - парки'} text={'В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.'} source={'Лента.ру'} icon={`article__icon-save`}></NewsCard>
-                    <NewsCard hidden={true} image={forest} date={'2 августа, 2019'} title={'Лесные огоньки: история одной фотографии'} text={'Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.'} source={'Медуза'} icon={`article__icon-save`}></NewsCard>
-                    <NewsCard hidden={true} image={taiga} date={'2 августа, 2019'} title={'«Первозданная тайга»: новый фотопроект Игоря Шпиленка'} text={'Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...'} source={'Риа'} icon={`article__icon-save`}>
-                        <div className="article__icon-alert">
-                            <p className="article__alert">Войдите, чтобы сохранять статьи</p>
-                        </div>
-                    </NewsCard>
+                    {
+                        props.articles.map((article) => {
+                            return (
+                                <NewsCard hidden={true} logged={props.logged} key={article.title} icon={`article__icon-save`} alert={`Войдите, чтобы сохранять статьи`} article={article} handleArticleSave={props.handleArticleSave} handleArticleDelete={props.handleArticleDelete} />
+                            )
+                        }).slice(0, props.visibleArticles)
+                    }
                 </NewsCardList>
-                <button className="news__button">Показать еще</button>
+                <button onClick={props.showMore} className={`news__button ${props.isButtonShowMore ? "news__button_visible" : ""}`}>Показать еще</button>
             </section>
         </main>
     )
