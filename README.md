@@ -1,4 +1,4 @@
-# Проект: NewsExplorer
+# Проект: [NewsExplorer](https://east.students.nomoredomains.icu/)
 
 ### О проекте
 
