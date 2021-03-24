@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://west.students.nomoredomains.icu';
+export const BASE_URL = 'https://west.students.nomoredomains.icu';
 
 
 function handleResponce(response) {

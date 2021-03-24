@@ -17,7 +17,8 @@
     "start": "react-scripts start --open --watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && scp -r ./build/* scanlin@130.193.41.11:/home/scanlin/news-explorer-frontend"
   },
   "eslintConfig": {
     "extends": [
