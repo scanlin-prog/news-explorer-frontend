@@ -11,12 +11,12 @@ function Footer() {
             <nav className="footer__links">
                 <div className="footer__links-text">
                     <a href="/" className="footer__link">Главная</a>
-                    <a href="https://praktikum.yandex.ru" className="footer__link">Яндекс.Практикум</a>
+                    <a href="https://praktikum.yandex.ru" target="_blank" className="footer__link">Яндекс.Практикум</a>
                 </div>
                 <div className="footer__links-icon">
-                    <a href="https://my.mail.ru/mail/inknw1999" className="footer__link"><img src={mail} alt="mail" /></a>
-                    <a href="https://vk.com/scanlin" className="footer__link footer__link-square"><img src={vk} alt="vk"/></a>
-                    <a href="https://vk.com/scanlin" className="footer__link footer__link-circle"><img src={vkCircle} alt="vk" /></a>
+                    <a href="https://my.mail.ru/mail/inknw1999" target="_blank" className="footer__link"><img src={mail} alt="mail" /></a>
+                    <a href="https://vk.com/scanlin" target="_blank" className="footer__link footer__link-square"><img src={vk} alt="vk"/></a>
+                    <a href="https://vk.com/scanlin" target="_blank" className="footer__link footer__link-circle"><img src={vkCircle} alt="vk" /></a>
                 </div>
             </nav>
         </footer>

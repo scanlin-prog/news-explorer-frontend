@@ -13,8 +13,8 @@ function About() {
                 </p>
                 <p className="about__describe">
                     Ниже представлены мои первые проекты (ссылки в заголовках):<br></br>
-                <a className="about__link" href="https://github.com/scanlin-prog/russian-travel">1. https://github.com/scanlin-prog/russian-travel</a><br></br>
-                <a className="about__link" href="https://github.com/scanlin-prog/mesto">2. https://github.com/scanlin-prog/mesto</a><br></br>
+                <a className="about__link" target="_blank" href="https://github.com/scanlin-prog/russian-travel">1. https://github.com/scanlin-prog/russian-travel</a><br></br>
+                <a className="about__link" target="_blank" href="https://github.com/scanlin-prog/mesto">2. https://github.com/scanlin-prog/mesto</a><br></br>
                 </p>
             </div>
         </section>

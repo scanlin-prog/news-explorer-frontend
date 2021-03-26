@@ -52,7 +52,7 @@ function NewsCard(props) {
 
     return (
         <div className="article">
-            <a href={props.article.link} className="article__link">
+            <a href={props.article.link} target="_blank" className="article__link">
                 <img className="article__image" src={props.article.image} alt="Изображение" />
                 <p className="article__date">{props.article.date}</p>
                 <h3 className="article__title">{props.article.title}</h3>
