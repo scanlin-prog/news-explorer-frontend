@@ -1,5 +1,5 @@
 /* export const BASE_URL = 'https://west.students.nomoredomains.icu'; */
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'http://localhost:3001';
 
 
 function handleResponce(response) {
